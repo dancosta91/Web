@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="pt" manifest="cache.manifest">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -20,6 +20,30 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
 	<link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+	
+	 <link rel="stylesheet" href="css/application.css" type="text/css" charset="utf-8">
+	
+	<script src="js/json2.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/jquery.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/jquery.tmpl.js" type="text/javascript" charset="utf-8"></script>
+
+	<script src="js/spine.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/spine.local.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/application.js" type="text/javascript" charset="utf-8"></script>
+  
+	<script type="text/x-jquery-tmpl" id="taskTemplate">
+		<div class="item {{if done}}done{{/if}}">
+			<div class="view" title="Clique duas vezes para editar...">
+				<input type="checkbox" {{if done}}checked="checked"{{/if}}> 
+				<span>${name}</span> <a class="destroy"></a>
+			</div>
+      
+			<div class="edit">
+				<input type="text" value="${name}">
+			</div>
+		</div>
+	</script>
+  
   </head>
   <body>
     <!-- Fixed navbar -->
@@ -64,8 +88,20 @@
 		</div>
 	</div>
 	
+	<div id="views">
+		<div id="tasks">
+			<h1>Lista de Tarefas</h1>
+			<form>
+				<input type="text" placeholder="Tarefa">
+			</form>
+			<div class="items"></div>
+			<footer>
+				<a class="clear">Limpar Completas</a>
+				<div class="count"><span class="countVal"></span> Tarefa</div>
+			</footer>
+		</div>
+	</div>
 	
-
 	<!-- Fixed footer -->
 	<div class="footer">
 		<div class="navbar navbar-inverse navbar-fixed-bottom" role="navigation">
